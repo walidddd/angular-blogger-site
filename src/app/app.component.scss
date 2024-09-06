@@ -1,0 +1,71 @@
+$frist-font: 'Poppins';
+$frist-color: #088cf7;
+$secound-color: #2a2b39;
+
+
+/*start navbar */
+body{
+    font-family: $frist-font;
+    background-color: #fcfcfc;
+
+}
+.navbar{
+    font-family: $frist-font;
+    font-weight: 400;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
+
+    .navbar-collapse{
+        justify-content: flex-end;
+
+    }
+    &.navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 16px;
+        color: #2a2b39c7;
+        transition: 0.8s;
+        &.active{
+            color: #0979d4; 
+        }
+        &:hover{
+            color: #0979d4; 
+        }
+    }
+    .navbar-brand{
+        font-size: 26px;
+        color: $secound-color;
+        span{
+            color: $frist-color;
+            color: $frist-color;
+            font-weight: 800;
+            font-size: 30px;
+            margin-right: 2px;
+        }
+    }
+    /*fixed-nav*/
+    .fixed-nav{
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 19%);
+        z-index: 10;
+    }
+}
+footer{
+    align-items: center;
+    height: 75px;
+    display: flex;
+    background-color: #0f1015;
+    h6{
+        margin: 0;
+        color: #ffffffad;
+        font-size: 14px;
+    }
+}
+
+/*******************************/
+@media(max-width: 750px){
+    .navbar-nav .nav-link{
+        text-align: center;
+    }
+}

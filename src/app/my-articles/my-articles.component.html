@@ -1,0 +1,38 @@
+<section class="my-aticles">
+    <div class="container">
+        <!--routing button to add new article-->
+        <button class="add-new" (click)="addNew()"> Add Article</button>
+
+        <ngx-datatable class="material " [columns]="columns" [rows]="rows" [columnMode]="'force'" [headerHeight]="50"
+            [footerHeight]="50" [rowHeight]="50" [footerHeight]="50" [limit]="10">
+
+            <ngx-datatable-column name="ID" [sortable]='false'>
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                    {{rowIndex + 1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Title" [sortable]='false'></ngx-datatable-column>
+            <ngx-datatable-column name="Date Add" [sortable]='false'></ngx-datatable-column>
+            <ngx-datatable-column name="Category" [sortable]='false'></ngx-datatable-column>
+            <ngx-datatable-column [sortable]='false'>
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                    <button type="button" class="buttons-table btn btn-outline-success" (click)="edite(rowIndex)">
+                        <span>Edite</span>
+                    </button>
+                    <button type="button none" class="buttons-table btn btn-outline-danger"
+                        (click)="delete(rowIndex)">Delete</button>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column [sortable]='false'>
+
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                    <button type="button" class="buttons-table btn btn-outline-danger show-button"
+                        (click)="delete(rowIndex)">
+                        <span>Delete</span>
+                    </button>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+    </div>
+</section>

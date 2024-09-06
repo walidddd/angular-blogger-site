@@ -1,0 +1,44 @@
+<!--start add-article section-->
+
+<section class="add-article">
+    <div class="container">
+        <div class="button-ipload text-center">
+            <div class="img">
+                <img width="100%" #blah height="100%">
+            </div>
+            <button (click)="addImage(image, blah)" type="button"><i class="fas fa-images"></i> main photo</button>
+            <input #image type="file" accept="image/*" class="d-none">
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alerts">
+            <alert type="warning" *ngIf="name.errors?.required">
+                Title is required.
+            </alert>
+            <alert type="warning" *ngIf="name.errors?.minlength">
+                Title must be at least 4 characters long.
+            </alert>
+            <alert type="warning" *ngIf="name.errors?.forbiddenName">
+                Title cannot be Bob.
+            </alert>
+        </div>
+        <div class="titles-inputs">
+            <input type="text" required minlength="4" appForbiddenName="bob" #name="ngModel" ngModel
+                [(ngModel)]="titleblogg" placeholder="Article Title">
+
+            <select #selected id="categorySelect" required>
+                <option *ngFor="let state of category" [ngValue]="category">
+                    {{ state.abbrev }}
+                </option>
+            </select>
+        </div>
+        <quill-editor (onEditorCreated)="getEditorInstance($event)" #quill="ngModel" ngModel theme="snow"
+            placeholder="Input notes, minimum 25 char " [maxLength]="25" aria-required="true" [(ngModel)]="html">
+        </quill-editor>
+        <button [disabled]="!name.valid ||  quill.valid" type="button" class="btn btn-primary add"
+            (click)="cli(selected)">Add
+            Article</button>
+    </div>
+</section>
+<!-- outInnerHtml test -->
+<div class="container innerEditor">
+    <div [innerHtml]="html "></div>
+</div>

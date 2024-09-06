@@ -1,0 +1,145 @@
+<!--start section myPosts-->
+<section class="myposts">
+    <div class="profile text-center">
+        <div class="image-user">
+            <img src="{{userProfile.image}}" alt="" srcset="">
+            <h6>{{userProfile.name}}</h6>
+        </div>
+        <div class="statistics">
+            <ul>
+                <li>
+                    <h6> <i class="fas fa-clone"></i> number of posts</h6> <span>{{myDataPosts.length}}</span>
+                </li>
+
+                <li>
+                    <h6> <i class="fas fa-heart"></i> number of likes</h6> <span>{{numberLikes}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="posts-page">
+        <div class="row">
+            <div class="col-md-3 right-bar">
+            </div>
+            <div class="col-md-6 container-post">
+                <!--container pagee-->
+                <app-add-post></app-add-post>
+                <!--start post-->
+                <div class="user-post" *ngFor="let post of myDataPosts let i = index;">
+                    <div class="nav-post">
+                        <div class="user-image">
+                            <img src="\assets\images\user.png" alt="" srcset="">
+                        </div>
+                        <div class="titles">
+                            <h6>{{post.userName}} </h6>
+                            <span class="date">
+                                <i class="fas fa-globe-americas"></i>
+                                Published: {{post.date}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="body-post">
+                        <p>
+                            {{post.pragraph}}
+                        </p>
+                        <div class="image-video">
+                            <img src="{{post.imageSrc}}" alt="" srcset="">
+                            <div class="video" [innerHtml]="post.videoSrc"></div>
+                        </div>
+                    </div>
+                    <div class="end-post">
+                        <button [ngClass]="post.likeActive === true ? 'active' : 'no' " id="liked" #like
+                            (click)="addLike(like, i)">
+                            <i class="fas fa-heart"></i>
+                            <span>{{post.totalLikes}}</span>
+                        </button>
+                        <button class="show-comments">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>{{post.commentUsers.length}}</span>
+                        </button>
+                        <button class="share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button (click)="showUserLikes(userlikes)">{{post.totalLikes}} User Likes</button>
+                        <!--start popUP like users-->
+                        <div class="more-likes-users d-none" #userlikes>
+                            <div class="popup-users">
+                                <button class="exite"><i class="fas fa-times"
+                                        (click)="hideUserLikes(userlikes)"></i></button>
+
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                                <div class="user">
+                                    <img src="\assets\images\user.png" alt="" srcset="">
+                                    <h6>ahmed mohamed</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comments-users">
+                        <div class="add-comment">
+                            <div>
+                                <img src="\assets\images\user.png" alt="" srcset="">
+                            </div>
+                            <div class="input-comment">
+                                <textarea #comment (keyup.enter)="addComment(comment, i)" name=""
+                                    placeholder="comment ..."></textarea>
+                            </div>
+                        </div>
+                        <div #allcomments class="all-comments">
+                            <div class="user-com d-flex" *ngFor="let comment of myDataPosts[i].commentUsers">
+                                <div>
+                                    <img src="{{comment.userImage}}" alt="" srcset="">
+                                </div>
+                                <div class="body-this-comment">
+                                    <h5>{{comment.userName}}</h5>
+
+                                    <p>
+                                        {{ comment.parag }}
+                                    </p>
+
+                                    <h6 class="date-comment">
+                                        {{comment.dateComment}}
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="more-comment" id="show" (click)="showAllComments(allcomments)">more
+                                comments</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--end post-->
+
+            </div>
+            <div class="col-md-3 left-bar"></div>
+        </div>
+    </section>
+</section>

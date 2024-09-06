@@ -1,0 +1,172 @@
+body{
+    background-color: #fcfcfc;
+}
+.blog{
+    padding: 25px 0;
+    font-family: 'Poppins';
+    background-color: #fcfcfc;
+
+    .head-filter{
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+
+        h6{
+            color: #0000008a;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        .categories, .tags{
+            background-color: #fff0;
+            border: none;
+            margin-right: 15px;
+            color: #088cf7;
+            font-size: 14px;
+
+        }
+        
+    }
+    .card {
+        margin-bottom: 15px;
+        display: flex;
+        flex-flow: nowrap;
+        flex-flow: wrap;
+        border: none;
+        margin: auto 0;
+        #categorySelect{
+            color: #088cf7;
+            border: none;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+            outline: none;
+            width: 100%;
+        }
+        .tag{
+            width: auto;
+            width: auto;
+            margin: 4px 4px;
+            font-size: 14px;
+            border: 1px solid #0676d0;
+            color: #0676d0;
+            transition: 0.2s;
+            &:hover{
+                background-color: #0676d0;
+                color: #fff;
+            }
+        }
+    }
+    
+}
+/*start body blog*/
+@keyframes example {
+    from {
+        display: none;
+        transform: rotateX(
+            85deg
+            );
+    }
+    to {
+        display: flex;
+        
+        transform: rotateX(0deg);
+
+    }
+  }
+.body-blog{
+    .box{
+        border: 2px solid #f7f7f7;
+        margin-bottom: 20px;
+        background-color: #fff;
+        
+        .header-box{
+            max-height: 270px;
+            position: relative;
+            img{
+                width: 100%;
+            }
+            .rg{
+                position: absolute;
+                width: 100%;
+                top: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #088cf775;
+                height: 100%;
+                transition: width 10s;
+                display: none;
+                a{
+                    width: 150px;
+                    text-align: center;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #268cf794;
+                    color: #fff;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #0676d0;
+                    }
+                }
+            }
+        }
+        &:hover{
+            .header-box{
+                .rg{
+                    animation: example 1s;
+                    display: flex;
+                    background: rgb(0 137 247 / 67%);
+
+                }
+            }
+            
+        }
+        
+    }
+    .body-box-blog{
+        padding: 0 15px;
+        padding-bottom: 15px;
+
+        .time-blog{
+            margin: 10px 0;
+            color: #989696;
+            font-size: 14px;
+            i{
+                margin-right: 5px;
+                margin-right: 5px;
+                color: #777474;
+            }
+        }
+        .description{
+            color: #27549ad9;
+            font-size: 15px;
+            overflow: hidden;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+        }
+        .end-blg{
+            position: relative;
+            .like{
+                background-color: #fff0;
+                border: none;
+                color: #ff3737;
+                font-size: 18px;
+            }
+            .more{
+                   position: absolute;
+                right: 0;
+                color: #7d7f82;
+                -webkit-text-decoration: underline #088cf7;
+                text-decoration: none;
+                cursor: pointer;
+
+            }
+        }
+    }
+    
+}

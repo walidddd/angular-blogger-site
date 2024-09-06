@@ -1,0 +1,37 @@
+
+.add-article{
+    margin-top: 55px;
+    .titles-inputs{
+        display: flex;
+        margin-bottom: 15px;
+        input, select{
+            border: none;
+            border-bottom: 2px solid #0d6efd;
+            margin-right: 15px;
+            outline: none;
+            width: 50%;
+            height: 45px;
+
+        }
+        select{
+            margin-right: 0;
+        }
+    }
+    .add{
+        margin-top: 20px;
+        background-color: #088cf7;
+        width: 150px;
+        transition: 0.8s;
+        &:hover{
+            color: #088cf7;
+            background-color: #fff;
+            border: 1px solid #088cf7;
+        }
+    }
+    
+}
+
+.innerEditor{
+    overflow-wrap: anywhere;
+
+}

@@ -1,0 +1,38 @@
+.my-aticles{
+    margin-top: 45px;
+    min-height: 80vh;
+    padding: 45px 0;
+
+    .buttons-table{
+        margin: 0 10px;
+        width: 71px;
+        font-size: 14px;
+    }
+    .add-new{
+        border: none;
+        width: 130px;
+        height: 40px;
+        background-color: #088cf7;
+        color: #fff;
+        margin-bottom: 16px;
+        font-family: 'Poppins';
+        transition: 0.8s;
+        &:hover{
+            background-color: #0e72c3;
+
+        }
+    }
+}
+@media(max-width: 800px){
+
+    .my-aticles{
+        .buttons-table{
+            margin: 0 0;
+            width: 49px;
+
+            font-size: 14px;
+            height: 27px;
+            height: 33px;
+        }
+    }
+}

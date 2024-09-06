@@ -1,0 +1,23 @@
+<div class="add-post">
+    <div class="title-box">
+        <h6>Create Post</h6>
+    </div>
+    <form [formGroup]="addPosts" (submit)="submit(pragraph)">
+        <div class="body-add-post">
+            <div class="user-image">
+                <img src="\assets\images\user.png" alt="" srcset="">
+            </div>
+            <textarea #pragraph formControlName="pragraph" required
+                placeholder="Post what you want and share with the community"></textarea>
+        </div>
+        <div class="nav-add">
+            <button (click)="addImage(image)" type="button"><i class="fas fa-images"></i></button>
+            <span class="src" id="srcx"></span>
+            <input #image type="file" formControlName="image" accept="image/*">
+
+            <button (click)="addVideo(vidoe)" type="button"><i class=" fas fa-video"></i></button>
+            <input #vidoe type="file" formControlName="video" accept="video/*">
+        </div>
+        <button type="submit" class="submit"> Post</button>
+    </form>
+</div>

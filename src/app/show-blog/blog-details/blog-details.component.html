@@ -1,0 +1,71 @@
+<!--start blog page-->
+<section class="head-pages text-center">
+    <div class="rgba"></div>
+    <h2>{{dataArticle.title}}</h2>
+    <ul>
+        <li><a href="">Home</a></li>
+        <span>></span>
+        <li class="active">blog</li>
+        <span>></span>
+        <li>{{dataArticle.title}}</li>
+    </ul>
+</section>
+<!--end blog page-->
+<div class="section-data container">
+    <section class="innerData" [innerHTML]="dataArticle.inner  | safeHtml" #innerData></section>
+    <div class="moreDiv text-center">
+        <button id="load" #load (click)="more(innerData, load)"><i class="fas fa-spinner"></i> Load More</button>
+        <button id="hide" class="d-none" #hidex (click)="hide(innerData, hidex)"><i class="far fa-eye-slash"></i> Hide
+            More</button>
+    </div>
+
+</div>
+<div class="share">
+    <div class="container">
+
+        <button class="like" [ngClass]="dataArticle.like === true ? 'active' : 'no' " (click)="addLike()">
+            <i class="fas fa-heart"></i> <span>{{dataArticle.totalLikes}}</span>
+        </button>
+
+        <div class="min-share">
+            <span>share</span>
+            <a href="http://">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="http://">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="http://">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="http://">
+                <i class="fab fa-pinterest-p"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="comments">
+    <div class="container">
+        <h2>{{dataArticle.commentsUsers.length}} Comments </h2>
+        <div class="comment add-comment">
+            <img src="assets\images/user.png" alt="" srcset="">
+            <div class="body-comment">
+                <h6 #name>hassen mohamed</h6>
+                <textarea #textarea name="" id="" placeholder="add comment" required></textarea>
+                <div class="next-input">
+                    <button class="cancel" (click)="cancel(textarea)">cancel</button>
+                    <button (click)="addComment(textarea, name)">add</button>
+                </div>
+            </div>
+        </div>
+        <div class="comment" *ngFor="let x of comments |   paginate: { itemsPerPage: 10, currentPage: p } ">
+            <img src="assets\images/user.png" alt="" srcset="">
+            <div class="body-comment">
+                <h6>{{x.name}}</h6>
+                <span>{{x.date}}</span>
+                <p>{{x.comment}}</p>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

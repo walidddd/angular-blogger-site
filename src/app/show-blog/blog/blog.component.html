@@ -1,0 +1,83 @@
+<!--start blog page-->
+<section class="head-pages text-center">
+    <div class="rgba"></div>
+    <h2>blog</h2>
+    <ul>
+        <li><a href="">Home</a></li>
+        <span>></span>
+        <li>blog</li>
+    </ul>
+</section>
+<!--end blog page-->
+<section class="blog">
+    <div class="container">
+        <!--start section filter -->
+        <div class="head-filter">
+            <h6>Filter by :</h6>
+            <button type="button" class="categories" (click)="isCollapsed1 = !isCollapsed1"
+                [attr.aria-expanded]="!isCollapsed1" aria-controls="x1">
+                <i class="fas fa-th-list"></i>
+                Categories
+                <i class="fas fa-caret-down"></i>
+            </button>
+            <button type="button" class="tags" (click)="isCollapsed2 = !isCollapsed2"
+                [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic2">
+                <i class="fas fa-tags"></i>
+                Tags
+                <i class="fas fa-caret-down"></i>
+            </button>
+
+        </div>
+        <div id="collapseBasic1" [collapse]="isCollapsed1" [isAnimated]="true">
+            <div class="well well-lg card card-block card-header">
+                <select #selected id="categorySelect" required>
+                    <option *ngFor="let state of category" [ngValue]="category">
+                        {{ state.abbrev }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div id="collapseBasic2" [collapse]="isCollapsed2" [isAnimated]="true">
+            <div class="well well-lg card card-block card-header row">
+                <button class="tag" *ngFor="let tag of tags" value="{{tag}}">{{tag}}</button>
+            </div>
+        </div>
+        <hr>
+        <div class="body-blog">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of dataBlog| paginate: { 
+                itemsPerPage: items,
+                currentPage: page,
+                totalItems: totalLnegth } ; let j = index; ">
+                    <div class="box">
+                        <div class="header-box">
+                            <img src="/assets/images/1.jpg" srcset="">
+                            <div class="rg">
+                                <a (click)="details(j)">Read More</a>
+                            </div>
+                        </div>
+                        <div class="body-box-blog">
+                            <div class="time-blog">
+                                <i class="far fa-clock"></i>
+                                <span>{{item.dateAdd}}</span>
+                            </div>
+                            <h5 class="title-blog">{{item.title}}</h5>
+                            <p class="description">
+                                {{item.description}}
+
+                            </p>
+                            <div class="end-blg">
+                                <button class="like"><i class="far fa-heart"></i> 0</button>
+                                <a (click)="details(j)" class="more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
